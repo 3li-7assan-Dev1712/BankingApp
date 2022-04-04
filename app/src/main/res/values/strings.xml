@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BankingApp</string>
+    <string name="customer_bank_amount">$ %i</string>
 </resources>
