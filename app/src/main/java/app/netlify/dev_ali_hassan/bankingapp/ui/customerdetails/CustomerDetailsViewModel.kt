@@ -6,9 +6,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @HiltViewModel
-class CustomerDetailsViewModel: ViewModel() {
+class CustomerDetailsViewModel @Inject constructor(): ViewModel() {
 
     private val eventsChannel = Channel<CustomerDetailsEvents>()
     val eventsFlow = eventsChannel.receiveAsFlow()

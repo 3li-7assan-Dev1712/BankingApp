@@ -2,9 +2,11 @@ package app.netlify.dev_ali_hassan.bankingapp.ui.customerdetails
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.CustomerDetailsFragmentBinding
@@ -18,9 +20,10 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
 
     private val viewModel: CustomerDetailsViewModel by viewModels()
 
+    private var customer: Customer? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = CustomerDetailsFragmentBinding.bind(view)
-        val customer: Customer? = arguments?.getParcelable("selected_customer")
+        customer = arguments?.getParcelable("selected_customer")
         customer?.apply {
             binding.detailsCustomerNameTv.text = this.customerName
             binding.detailsCustomerEmailTv.text = this.customerEmail
@@ -46,6 +49,11 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
                     is CustomerDetailsViewModel.CustomerDetailsEvents.DisplayAmountMoneyDialog -> {
                         // display dialog fragment to ask the customer how much they want to
                         // transfer
+                        customer?.also {
+                            val data = bundleOf("customer" to it)
+                            findNavController().navigate(R.id.action_customerDetailsFragment_to_transferMoneyDialog, data)
+                        }
+
                     }
                 }
             }

@@ -18,5 +18,18 @@
         android:id="@+id/customerDetailsFragment"
         android:name="app.netlify.dev_ali_hassan.bankingapp.ui.customerdetails.CustomerDetailsFragment"
         android:label="customer_details_fragment"
-        tools:layout="@layout/customer_details_fragment" />
+        tools:layout="@layout/customer_details_fragment" >
+        <action
+            android:id="@+id/action_customerDetailsFragment_to_transferMoneyDialog"
+            app:destination="@id/transferMoneyDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/transferMoneyDialog"
+        android:name="app.netlify.dev_ali_hassan.bankingapp.ui.transfermoneydialog.TransferMoneyDialog"
+        android:label="transfer_money_dialog"
+        tools:layout="@layout/transfer_money_dialog" >
+        <argument
+            android:name="cutomer"
+            app:argType="app.netlify.dev_ali_hassan.bankingapp.data.models.Customer" />
+    </dialog>
 </navigation>

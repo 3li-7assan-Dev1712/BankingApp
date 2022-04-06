@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import app.netlify.dev_ali_hassan.bankingapp.R
 import dagger.hilt.android.AndroidEntryPoint
 
-const val TAG = "AllCustomersFragment"
+
 /**
  *
  * The Fragment will be display all customer in a list back-ended be the AllCustomersViewModel
@@ -21,5 +21,9 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment) {
         Log.d(TAG, "onViewCreated: starts")
         // will be filled in the up coming commits
 
+    }
+
+    companion object {
+        const val TAG = "AllCustomersFragment"
     }
 }
