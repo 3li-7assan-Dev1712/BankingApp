@@ -40,9 +40,9 @@
         android:ellipsize="end"
         android:maxLength="50"
         android:maxLines="1"
+        android:text="@string/customer_e_mail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCustomerNameTv"
-        android:text="@string/customer_e_mail" />
+        app:layout_constraintTop_toBottomOf="@id/detailsCustomerNameTv" />
 
     <TextView
         android:id="@+id/detailsCustomerGenderLabel"
@@ -51,9 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/customer_gender"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailscustomerEmailTvLabel"
-        android:text="@string/customer_gender" />
+        app:layout_constraintTop_toBottomOf="@id/detailscustomerEmailTvLabel" />
 
     <TextView
         android:id="@+id/detailsCustomerAvailableBalanceLabel"
@@ -62,9 +62,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/available_balance"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCustomerGenderLabel"
-        android:text="@string/available_balance" />
+        app:layout_constraintTop_toBottomOf="@id/detailsCustomerGenderLabel" />
 
     <TextView
         android:id="@+id/detailscustomerBankIdLabel"
@@ -73,9 +73,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/bank_id"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCustomerAvailableBalanceLabel"
-        android:text="@string/bank_id" />
+        app:layout_constraintTop_toBottomOf="@id/detailsCustomerAvailableBalanceLabel" />
 
     <TextView
         android:id="@+id/detailsCustomerEmailTv"
@@ -119,4 +119,17 @@
         app:layout_constraintStart_toEndOf="@id/detailscustomerBankIdLabel"
         app:layout_constraintTop_toTopOf="@+id/detailscustomerBankIdLabel"
         tools:text="3829DF932GLIN2" />
+
+    <Button
+        android:id="@+id/transferMoneyBtn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/transferMoneyBtnText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
