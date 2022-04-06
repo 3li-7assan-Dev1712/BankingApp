@@ -9,5 +9,14 @@
         android:id="@+id/allCustomersFragment"
         android:name="app.netlify.dev_ali_hassan.bankingapp.ui.allcustomers.AllCustomersFragment"
         android:label="all_customers_fragment"
-        tools:layout="@layout/all_customers_fragment" />
+        tools:layout="@layout/all_customers_fragment" >
+        <action
+            android:id="@+id/action_allCustomersFragment_to_customerDetailsFragment"
+            app:destination="@id/customerDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetailsFragment"
+        android:name="app.netlify.dev_ali_hassan.bankingapp.ui.customerdetails.CustomerDetailsFragment"
+        android:label="customer_details_fragment"
+        tools:layout="@layout/customer_details_fragment" />
 </navigation>

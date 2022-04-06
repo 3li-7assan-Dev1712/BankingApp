@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">BankingApp</string>
     <string name="customer_bank_amount">$ %i</string>
+    <string name="customer_e_mail">Customer E-mail:</string>
+    <string name="customer_gender">Customer Gender:</string>
+    <string name="available_balance">Available Balance:</string>
+    <string name="bank_id">Bank ID:</string>
 </resources>

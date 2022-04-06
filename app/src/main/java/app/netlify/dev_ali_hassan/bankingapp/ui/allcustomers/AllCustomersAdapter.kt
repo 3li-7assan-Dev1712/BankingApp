@@ -18,7 +18,7 @@ class AllCustomerIsAdapter(
     ListAdapter<Customer, AllCustomerIsAdapter.CustomerViewHolder>(PageDiffUtil()) {
 
     interface OnCustomerSelected {
-        fun onCustomerSelected()
+        fun onCustomerSelected(customer: Customer)
     }
 
 
@@ -26,7 +26,7 @@ class AllCustomerIsAdapter(
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-
+                listener.onCustomerSelected(getItem(adapterPosition))
             }
         }
 
