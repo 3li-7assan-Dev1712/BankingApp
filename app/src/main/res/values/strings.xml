@@ -14,4 +14,5 @@
     <string name="edit_text_cannot_be_empty">please insert valid amount to transfer</string>
     <string name="viewAllCustomers">All Customers</string>
     <string name="transformations">Transformations</string>
+    <string name="not_enough_balance">sorry, your blance is not enough</string>
 </resources>

@@ -36,13 +36,19 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
     }
 
     private fun transferMoneyToCustomer(amount: String, customer: Customer) {
-        Toast.makeText(
-            requireContext(),
-            "Transfer $$amount to the ${customer.customerName}",
-            Toast.LENGTH_LONG
-        )
-            .show()
-        findNavController().popBackStack()
+        val moneyAmount = amount as Int
+        if (moneyAmount > customer.customerBankAmount) {
+            binding.moneyAmountEditText.setError(getString(R.string.not_enough_balance))
+        } else {
+            Toast.makeText(
+                requireContext(),
+                "Transfer $$amount to ${customer.customerName}",
+                Toast.LENGTH_LONG
+            )
+                .show()
+
+            findNavController().popBackStack()
+        }
     }
 
     companion object {
