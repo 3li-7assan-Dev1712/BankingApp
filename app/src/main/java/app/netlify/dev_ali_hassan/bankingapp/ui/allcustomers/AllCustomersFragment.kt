@@ -27,6 +27,7 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = AllCustomersFragmentBinding.bind(view)
         val adapter = AllCustomerIsAdapter(this, requireContext())
         binding.allCustoemrsRv.adapter = adapter
         adapter.submitList(viewModel.provideTempData())

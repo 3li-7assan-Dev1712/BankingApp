@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BankingApp</string>
-    <string name="customer_bank_amount">$ %i</string>
+    <string name="customer_bank_amount">$ %s</string>
     <string name="customer_e_mail">Customer E-mail:</string>
     <string name="customer_gender">Customer Gender:</string>
     <string name="available_balance">Available Balance:</string>
@@ -12,4 +12,6 @@
     <string name="selected_money_amount_label">Enter the amount of money you want to transfer</string>
     <string name="_500">$500</string>
     <string name="edit_text_cannot_be_empty">please insert valid amount to transfer</string>
+    <string name="viewAllCustomers">All Customers</string>
+    <string name="transformations">Transformations</string>
 </resources>

@@ -37,7 +37,7 @@ class AllCustomerIsAdapter(
             binding.customerBankIdTv.text = customer.customerBankId
             binding.customerMoneyAmountTv.text = context.resources.getString(
                 R.string.customer_bank_amount,
-                customer.customerBankAmount
+                customer.customerBankAmount.toString()
             )
         }
     }
