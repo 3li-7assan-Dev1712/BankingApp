@@ -10,16 +10,16 @@ class TransformationsViewModel @Inject constructor() : ViewModel() {
 
 
     fun provideTempData() = listOf(
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true),
-        Transformation("Esam", 2, System.currentTimeMillis(), 342, true)
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true),
+        Transformation("Esam",  System.currentTimeMillis(), 342, true)
 
     )
 }

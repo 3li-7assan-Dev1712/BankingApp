@@ -18,7 +18,7 @@ class AppModel {
     @Provides
     fun provideAppDatabase(app: Application) =
         Room.databaseBuilder(app, AppDatabase::class.java, "bank_database")
-            .createFromAsset("database/bank_database.db")
+            .createFromAsset("database/bank_app.db")
             .build()
 
     @Provides
