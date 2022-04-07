@@ -2,9 +2,11 @@ package app.netlify.dev_ali_hassan.bankingapp.ui.allcustomers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import app.netlify.dev_ali_hassan.bankingapp.data.daos.CustomerDao
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,12 +16,15 @@ import javax.inject.Inject
  * with the database, and take all the back end side.
  */
 @HiltViewModel
-class AllCustomersViewModel @Inject constructor() : ViewModel() {
+class AllCustomersViewModel @Inject constructor(
+    customerDao: CustomerDao
+) : ViewModel() {
 
 
     private val eventsChannel = Channel<AllCustomerEvents>()
     val eventsFlow = eventsChannel.receiveAsFlow()
 
+    val customersFlow = customerDao.getAllCustomers()
 
     fun userSelectCustomer(customer: Customer) =
         viewModelScope.launch {
@@ -30,7 +35,6 @@ class AllCustomersViewModel @Inject constructor() : ViewModel() {
     sealed class AllCustomerEvents {
         data class NavigateToDetailsFragment(val customer: Customer): AllCustomerEvents()
     }
-
 
 
     fun provideTempData() = listOf(

@@ -9,6 +9,6 @@ import kotlinx.coroutines.flow.Flow
 interface CustomerDao {
 
     @Query("SELECT * FROM customers")
-    fun getAllCustomers(): Flow<Customer>
+    fun getAllCustomers(): Flow<List<Customer>>
 
 }

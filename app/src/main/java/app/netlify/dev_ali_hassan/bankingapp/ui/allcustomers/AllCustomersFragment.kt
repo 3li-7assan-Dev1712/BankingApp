@@ -33,6 +33,12 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
         adapter.submitList(viewModel.provideTempData())
         Log.d(TAG, "onViewCreated: starts")
 
+        // read data
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.customersFlow.collect {customers ->
+                adapter.submitList(customers)
+            }
+        }
         // listen to events
         listenToEvents()
     }

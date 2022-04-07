@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.Flow
 interface TransformationsDao {
 
     @Query ("SELECT * FROM transformations ORDER BY transformationTimestamp")
-    fun getAllTransformations(): Flow<Transformation>
+    fun getAllTransformations(): Flow<List<Transformation>>
 
     @Insert
     suspend fun addNewTransformation(transformation: Transformation)
