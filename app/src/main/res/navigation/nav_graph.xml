@@ -43,5 +43,13 @@
         <action
             android:id="@+id/action_homeScreenFragment_to_allCustomersFragment"
             app:destination="@id/allCustomersFragment" />
+        <action
+            android:id="@+id/action_homeScreenFragment_to_transformationsFragment"
+            app:destination="@id/transformationsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/transformationsFragment"
+        android:name="app.netlify.dev_ali_hassan.bankingapp.ui.transformations.TransformationsFragment"
+        android:label="tranformations_fragment"
+        tools:layout="@layout/tranformations_fragment" />
 </navigation>
