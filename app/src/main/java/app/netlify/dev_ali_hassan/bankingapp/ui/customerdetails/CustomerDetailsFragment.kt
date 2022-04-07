@@ -28,7 +28,12 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
             binding.detailsCustomerNameTv.text = this.customerName
             binding.detailsCustomerEmailTv.text = this.customerEmail
             binding.detailsCustomerAvailableBalance.text = this.customerBankAmount.toString()
-            binding.detailsCustomerGender.text = this.customerGender.name.lowercase()
+            var gender = ""
+            if (customer?.customerGenderIsMale == true)
+                gender = "male"
+            else
+                gender = "female"
+            binding.detailsCustomerGender.text = gender
             binding.detailscustomerBankId.text = this.customerBankId
 
         }
@@ -51,7 +56,10 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
                         // transfer
                         customer?.also {
                             val data = bundleOf("customer" to it)
-                            findNavController().navigate(R.id.action_customerDetailsFragment_to_transferMoneyDialog, data)
+                            findNavController().navigate(
+                                R.id.action_customerDetailsFragment_to_transferMoneyDialog,
+                                data
+                            )
                         }
 
                     }

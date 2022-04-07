@@ -3,7 +3,6 @@ package app.netlify.dev_ali_hassan.bankingapp.data.models
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-enum class Gender { MALE, FEMALE }
 @Parcelize
 data class Customer(
     val customerName: String,
@@ -11,11 +10,11 @@ data class Customer(
     val customerBankAmount: Int,
     val customerEmail: String,
     var customerAvatarCode: Int = 0,
-    val customerGender: Gender
+    val customerGenderIsMale: Boolean
 ): Parcelable {
     init {
-        customerAvatarCode = when (customerGender) {
-            Gender.MALE -> {
+        customerAvatarCode = when (customerGenderIsMale) {
+            true -> {
                 (1..3).random()
             }
             else -> {
