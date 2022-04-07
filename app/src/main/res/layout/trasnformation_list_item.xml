@@ -15,17 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/transformerImageView"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
-
-
         <TextView
             android:id="@+id/customerNameTv"
             android:layout_width="wrap_content"
@@ -33,9 +22,21 @@
             android:layout_marginStart="16dp"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/transformerImageView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Ali Hassan" />
+
+        <ImageView
+            android:id="@+id/moneyStatusImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/customerMoneyAmountTv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_received" />
+
 
         <TextView
             android:id="@+id/customerBankIdTv"
@@ -44,7 +45,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@id/transformerImageView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/customerNameTv"
             tools:text="8393fddkjf3" />
 
