@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.databinding.TranformationsFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 @AndroidEntryPoint
 class TransformationsFragment: Fragment(R.layout.tranformations_fragment) {
@@ -20,7 +22,14 @@ class TransformationsFragment: Fragment(R.layout.tranformations_fragment) {
 
         val adapter = TransformationsAdapter(requireContext())
         binding.transformationsRv.adapter = adapter
-        adapter.submitList(viewModel.provideTempData())
+
+
+
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.tranformationsFlow.collect {transformations ->
+                adapter.submitList(transformations)
+            }
+        }
 
     }
 
