@@ -29,6 +29,10 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
 
             }
         }
+        binding.cancelTransferMoneyTextView.setOnClickListener {
+            Toast.makeText(requireContext(), "cancel operation successfully", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
 
     private fun transferMoneyToCustomer(amount: String, customer: Customer) {
