@@ -1,5 +1,8 @@
 package app.netlify.dev_ali_hassan.bankingapp.data.models
 
+import androidx.room.Entity
+
+@Entity(tableName = "transformations")
 data class Transformation(
     val transformerName: String,
     var transformationTimestamp: Long = 0,
