@@ -21,8 +21,8 @@ class TranferMoneyViewModel @Inject constructor(
     val eventsChannel = Channel<TransferMoneyEvents>()
     val eventsFlow = eventsChannel.receiveAsFlow()
 
-    fun serTransferMoneyToOtherCustomer(amount: Int, customer: Customer) {
-        val availableBalance = customer.customerBankAmount - amount
+    fun userTransferMoneyToOtherCustomer(amount: Int, customer: Customer) {
+        val availableBalance = customer.customerBankAmount + amount
         val updatedCustomer = customer.copy(customerBankAmount = availableBalance)
         viewModelScope.launch {
             customerDao.updateCustomer(updatedCustomer)

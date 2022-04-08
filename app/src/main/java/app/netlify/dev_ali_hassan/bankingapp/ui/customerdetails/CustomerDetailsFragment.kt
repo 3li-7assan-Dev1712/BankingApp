@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.CustomerDetailsFragmentBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -45,6 +47,24 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
         }
 
         listenToOrdersFromViewModel()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragmentResultListener("operations_status") { requestKey, bundle ->
+            val result = bundle.getBoolean("operationSuccessful")
+            if (result) {
+                Snackbar.make(
+                    binding.root,
+                    getString(R.string.transfer_money_message),
+                    Snackbar.LENGTH_LONG
+                )
+                    .setAction(R.string.ok) {
+
+                    }.show()
+            }
+
+        }
     }
 
     private fun listenToOrdersFromViewModel() {

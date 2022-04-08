@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -27,6 +29,7 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = TransferMoneyDialogBinding.bind(view)
+        customer = arguments?.getParcelable("selected_customer")
         binding.transferMoneyTextView.setOnClickListener {
             Log.d(TAG, "onViewCreated: transfer is clicked")
             val amount = binding.moneyAmountEditText.text.toString()
@@ -43,6 +46,7 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
             }
         }
         binding.cancelTransferMoneyTextView.setOnClickListener {
+            findNavController().popBackStack()
             Toast.makeText(requireContext(), "cancel operation successfully", Toast.LENGTH_SHORT)
                 .show()
         }
@@ -56,38 +60,26 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
             viewModel.eventsFlow.collect { events ->
                 when (events) {
                     is TranferMoneyViewModel.TransferMoneyEvents.OperationFinishedSuccessfully -> {
-                        showSuccessfullMessageAndPopupBack()
+                        showSuccessfulMessageAndPopupBack()
                     }
                 }
             }
         }
     }
 
-    private fun showSuccessfullMessageAndPopupBack() {
+    private fun showSuccessfulMessageAndPopupBack() {
+        setFragmentResult("operations_status", bundleOf("operationSuccessful" to true))
         findNavController().popBackStack()
-
-        Snackbar.make(binding.root, getString(R.string.transfer_money_message), Snackbar.LENGTH_LONG)
-            .setAction(R.string.ok) {
-
-
-            }.show()
     }
 
     private fun transferMoneyToCustomer(amount: String, customer: Customer) {
         Log.d(TAG, "transferMoneyToCustomer: ")
-        val moneyAmount = amount as Int
-        if (moneyAmount > customer.customerBankAmount) {
-            binding.moneyAmountEditText.setError(getString(R.string.not_enough_balance))
-        } else {
-            Toast.makeText(
-                requireContext(),
-                "Transfer $$amount to ${customer.customerName}",
-                Toast.LENGTH_LONG
-            )
-                .show()
-
-            findNavController().popBackStack()
-            Log.d(TAG, "transferMoneyToCustomer: should disappear")
+        val moneyAmount = amount.toIntOrNull()
+        if (moneyAmount != null) {
+            if (moneyAmount > customer.customerBankAmount)
+                binding.moneyAmountEditText.setError(getString(R.string.not_enough_balance))
+            else
+                viewModel.userTransferMoneyToOtherCustomer(moneyAmount, customer)
         }
     }
 

@@ -7,6 +7,7 @@
     <string name="bank_id">Bank ID:</string>
     <string name="transferMoneyBtnText">Transfer</string>
     <string name="transfer_money_message">"Transfer money to the selected customer "</string>
+    <string name="confirmation_message_snackbar">"operation finished successfully"</string>
     <string name="cancel">Cancel</string>
     <string name="transfer_money">Transfer Money</string>
     <string name="selected_money_amount_label">Enter the amount of money you want to transfer</string>
