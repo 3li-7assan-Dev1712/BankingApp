@@ -1,6 +1,7 @@
 package app.netlify.dev_ali_hassan.bankingapp.ui.transfermoneydialog
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
@@ -23,17 +24,21 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
     private lateinit var binding: TransferMoneyDialogBinding
 
     private var customer: Customer? = null
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = TransferMoneyDialogBinding.bind(view)
         binding.transferMoneyTextView.setOnClickListener {
+            Log.d(TAG, "onViewCreated: transfer is clicked")
             val amount = binding.moneyAmountEditText.text.toString()
             if (amount.isEmpty()) {
                 binding.moneyAmountEditText.setError(getString(R.string.edit_text_cannot_be_empty))
             } else {
 
                 customer?.also {
+                    Log.d(TAG, "onViewCreated: customer is not null it, should transfer money")
                     transferMoneyToCustomer(amount, it)
                 }
+                Log.d(TAG, "onViewCreated: called transfer money method")
 
             }
         }
@@ -64,10 +69,12 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
         Snackbar.make(binding.root, getString(R.string.transfer_money_message), Snackbar.LENGTH_LONG)
             .setAction(R.string.ok) {
 
+
             }.show()
     }
 
     private fun transferMoneyToCustomer(amount: String, customer: Customer) {
+        Log.d(TAG, "transferMoneyToCustomer: ")
         val moneyAmount = amount as Int
         if (moneyAmount > customer.customerBankAmount) {
             binding.moneyAmountEditText.setError(getString(R.string.not_enough_balance))
@@ -80,6 +87,7 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
                 .show()
 
             findNavController().popBackStack()
+            Log.d(TAG, "transferMoneyToCustomer: should disappear")
         }
     }
 

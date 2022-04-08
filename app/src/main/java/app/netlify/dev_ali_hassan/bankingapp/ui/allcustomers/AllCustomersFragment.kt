@@ -30,7 +30,6 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
         binding = AllCustomersFragmentBinding.bind(view)
         val adapter = AllCustomerIsAdapter(this, requireContext())
         binding.allCustoemrsRv.adapter = adapter
-        adapter.submitList(viewModel.provideTempData())
         Log.d(TAG, "onViewCreated: starts")
 
         // read data

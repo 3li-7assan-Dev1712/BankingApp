@@ -15,11 +15,14 @@ class HomeScreenFragment : Fragment(R.layout.home_screen_fragment) {
         binding = HomeScreenFragmentBinding.bind(view)
         binding.apply {
             viewAllcustomersBtn.setOnClickListener {
+
                 findNavController().navigate(R.id.action_homeScreenFragment_to_allCustomersFragment)
+
             }
 
             tranformationsBtn.setOnClickListener {
                 // navigate to transformations fragment.
+                findNavController().navigate(R.id.action_homeScreenFragment_to_transformationsFragment)
             }
         }
     }

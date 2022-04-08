@@ -55,7 +55,7 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
                         // display dialog fragment to ask the customer how much they want to
                         // transfer
                         customer?.also {
-                            val data = bundleOf("customer" to it)
+                            val data = bundleOf("selected_customer" to it)
                             findNavController().navigate(
                                 R.id.action_customerDetailsFragment_to_transferMoneyDialog,
                                 data
