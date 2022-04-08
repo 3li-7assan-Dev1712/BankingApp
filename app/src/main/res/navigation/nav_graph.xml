@@ -25,6 +25,9 @@
         <argument
             android:name="selected_customer"
             app:argType="app.netlify.dev_ali_hassan.bankingapp.data.models.Customer" />
+        <action
+            android:id="@+id/action_customerDetailsFragment_to_transformationsFragment"
+            app:destination="@id/transformationsFragment" />
     </fragment>
     <dialog
         android:id="@+id/transferMoneyDialog"

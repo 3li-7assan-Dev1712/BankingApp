@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TransformationsDao {
 
-    @Query ("SELECT * FROM transformations ORDER BY transformationTimestamp")
+    @Query ("SELECT * FROM transformations ORDER BY transformationTimestamp DESC")
     fun getAllTransformations(): Flow<List<Transformation>>
 
     @Insert

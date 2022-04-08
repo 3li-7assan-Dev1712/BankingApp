@@ -16,5 +16,5 @@
     <string name="viewAllCustomers">All Customers</string>
     <string name="transformations">Transformations</string>
     <string name="not_enough_balance">sorry, your blance is not enough</string>
-    <string name="ok">OK</string>
+    <string name="check">CHECK</string>
 </resources>

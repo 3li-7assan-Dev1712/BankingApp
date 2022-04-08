@@ -59,9 +59,9 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
                     getString(R.string.transfer_money_message),
                     Snackbar.LENGTH_LONG
                 )
-                    .setAction(R.string.ok) {
-
-                    }.show()
+                    .setAction(R.string.check) {
+                        findNavController().navigate(R.id.action_customerDetailsFragment_to_transformationsFragment)
+                    }.setAnchorView(binding.transferMoneyBtn).show()
             }
 
         }
