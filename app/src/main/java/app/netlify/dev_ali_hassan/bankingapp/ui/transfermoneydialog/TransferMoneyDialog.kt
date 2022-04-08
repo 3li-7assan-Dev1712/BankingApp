@@ -4,13 +4,21 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.TransferMoneyDialogBinding
+import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
+@AndroidEntryPoint
 class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
 
+
+    private val viewModel: TranferMoneyViewModel by viewModels()
 
     private lateinit var binding: TransferMoneyDialogBinding
 
@@ -33,6 +41,30 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
             Toast.makeText(requireContext(), "cancel operation successfully", Toast.LENGTH_SHORT)
                 .show()
         }
+
+        // listen to events
+        listentoEventsFromViewModel()
+    }
+
+    private fun listentoEventsFromViewModel() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.eventsFlow.collect { events ->
+                when (events) {
+                    is TranferMoneyViewModel.TransferMoneyEvents.OperationFinishedSuccessfully -> {
+                        showSuccessfullMessageAndPopupBack()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showSuccessfullMessageAndPopupBack() {
+        findNavController().popBackStack()
+
+        Snackbar.make(binding.root, getString(R.string.transfer_money_message), Snackbar.LENGTH_LONG)
+            .setAction(R.string.ok) {
+
+            }.show()
     }
 
     private fun transferMoneyToCustomer(amount: String, customer: Customer) {
