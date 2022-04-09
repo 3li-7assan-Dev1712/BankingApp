@@ -39,6 +39,17 @@ class AllCustomerIsAdapter(
                 R.string.customer_bank_amount,
                 customer.customerBankAmount.toString()
             )
+            binding.apply {
+                when (customer.customerAvatarCode) {
+                    1 -> {transformerImageView.setImageResource(R.drawable.bank_building)}
+                    2 -> {transformerImageView.setImageResource(R.drawable.bank_building)}
+                    3 -> {transformerImageView.setImageResource(R.drawable.bank_building)}
+                    4 -> {transformerImageView.setImageResource(R.drawable.bank_building)}
+                    5 -> {transformerImageView.setImageResource(R.drawable.bank_building)}
+                    6 -> {transformerImageView.setImageResource(R.drawable.bank_building)}
+                }
+            }
+
         }
     }
 
