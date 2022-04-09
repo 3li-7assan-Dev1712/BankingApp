@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BankingApp</string>
+    <string name="app_name">Banking App</string>
     <string name="customer_bank_amount">$ %s</string>
     <string name="customer_e_mail">Customer E-mail:</string>
     <string name="customer_gender">Customer Gender:</string>
