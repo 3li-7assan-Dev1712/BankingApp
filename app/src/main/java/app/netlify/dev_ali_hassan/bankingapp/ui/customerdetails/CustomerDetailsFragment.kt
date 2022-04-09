@@ -30,7 +30,7 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
         customer?.apply {
             binding.detailsCustomerNameTv.text = this.customerName
             binding.detailsCustomerEmailTv.text = this.customerEmail
-            binding.detailsCustomerAvailableBalance.text = this.customerBankAmount.toString()
+            binding.detailsCustomerAvailableBalance.text = ResourceUtil.getFormattedCurrency(this.customerBankAmount)
             var gender = ""
             gender = if (customer?.customerGenderIsMale == true)
                 "Male"

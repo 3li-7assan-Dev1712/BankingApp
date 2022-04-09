@@ -1,6 +1,7 @@
 package app.netlify.dev_ali_hassan.bankingapp.ui.allcustomers
 
 import android.content.Context
+import android.icu.number.NumberFormatter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +11,8 @@ import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.CustomerListItemBinding
 import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
+import java.text.NumberFormat
+import java.util.*
 
 
 class AllCustomerIsAdapter(
@@ -21,6 +24,7 @@ class AllCustomerIsAdapter(
     interface OnCustomerSelected {
         fun onCustomerSelected(customer: Customer)
     }
+
 
 
     inner class CustomerViewHolder(val binding: CustomerListItemBinding) :
@@ -36,10 +40,7 @@ class AllCustomerIsAdapter(
         ) {
             binding.customerNameTv.text = customer.customerName
             binding.customerBankIdTv.text = customer.customerBankId
-            binding.customerMoneyAmountTv.text = context.resources.getString(
-                R.string.customer_bank_amount,
-                customer.customerBankAmount.toString()
-            )
+            binding.customerMoneyAmountTv.text = ResourceUtil.getFormattedCurrency(customer.customerBankAmount)
             binding.transformerImageView.setImageResource(
                 ResourceUtil.getResourceIdOfAvatar(
                     customer.customerAvatarCode,

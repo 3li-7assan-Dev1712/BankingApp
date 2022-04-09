@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Transformation
 import app.netlify.dev_ali_hassan.bankingapp.databinding.TrasnformationListItemBinding
-import com.google.android.material.timepicker.TimeFormat
+import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,8 +28,11 @@ class TransformationsAdapter(
             trasnformation: Transformation
         ) {
             binding.customerNameTv.text = trasnformation.transformerName
-            binding.customerBankIdTv.text = SimpleDateFormat("h:mm a", Locale.getDefault()).format(trasnformation.transformationTimestamp)
-            binding.customerMoneyAmountTv.text = trasnformation.balance.toString()
+            binding.customerBankIdTv.text = SimpleDateFormat(
+                "h:mm a",
+                Locale.getDefault()
+            ).format(trasnformation.transformationTimestamp)
+            binding.customerMoneyAmountTv.text = ResourceUtil.getFormattedCurrency(trasnformation.balance)
             if (trasnformation.isReceived)
                 binding.moneyStatusImageView.setImageResource(R.drawable.ic_received)
             else

@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.TransferMoneyDialogBinding
+import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -29,6 +30,7 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = TransferMoneyDialogBinding.bind(view)
+        binding.moneyAmountEditText.hint = ResourceUtil.getFormattedCurrency(500)
         customer = arguments?.getParcelable("selected_customer")
         binding.transferMoneyTextView.setOnClickListener {
             Log.d(TAG, "onViewCreated: transfer is clicked")

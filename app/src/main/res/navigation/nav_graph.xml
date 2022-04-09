@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/allCustomersFragment"
         android:name="app.netlify.dev_ali_hassan.bankingapp.ui.allcustomers.AllCustomersFragment"
-        android:label="all_customers_fragment"
-        tools:layout="@layout/all_customers_fragment" >
+        android:label="@string/customers"
+        tools:layout="@layout/all_customers_fragment">
         <action
             android:id="@+id/action_allCustomersFragment_to_customerDetailsFragment"
             app:destination="@id/customerDetailsFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/customerDetailsFragment"
         android:name="app.netlify.dev_ali_hassan.bankingapp.ui.customerdetails.CustomerDetailsFragment"
-        android:label="customer_details_fragment"
-        tools:layout="@layout/customer_details_fragment" >
+        android:label="@string/customer_details"
+        tools:layout="@layout/customer_details_fragment">
         <action
             android:id="@+id/action_customerDetailsFragment_to_transferMoneyDialog"
             app:destination="@id/transferMoneyDialog" />
@@ -41,8 +41,8 @@
     <fragment
         android:id="@+id/homeScreenFragment"
         android:name="app.netlify.dev_ali_hassan.bankingapp.ui.homescreen.HomeScreenFragment"
-        android:label="home_screen_fragment"
-        tools:layout="@layout/home_screen_fragment" >
+        android:label="@string/app_name"
+        tools:layout="@layout/home_screen_fragment">
         <action
             android:id="@+id/action_homeScreenFragment_to_allCustomersFragment"
             app:destination="@id/allCustomersFragment" />
@@ -53,6 +53,6 @@
     <fragment
         android:id="@+id/transformationsFragment"
         android:name="app.netlify.dev_ali_hassan.bankingapp.ui.transformations.TransformationsFragment"
-        android:label="tranformations_fragment"
+        android:label="@string/transformations"
         tools:layout="@layout/tranformations_fragment" />
 </navigation>
