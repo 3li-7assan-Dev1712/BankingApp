@@ -24,11 +24,12 @@
         android:id="@+id/customerImgView"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize30Percent"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_launcher" />
+        tools:src="#ff0" />
 
     <TextView
         android:id="@+id/detailscustomerEmailTvLabel"

@@ -18,6 +18,8 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/transformerImageView"
             android:layout_width="56dp"
+            app:cornerSize="50%"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
             android:layout_height="56dp"
             android:contentDescription="@string/app_name"
             app:layout_constraintBottom_toBottomOf="parent"
