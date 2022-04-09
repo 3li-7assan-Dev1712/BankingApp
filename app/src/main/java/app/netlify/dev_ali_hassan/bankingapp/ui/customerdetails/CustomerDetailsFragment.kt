@@ -30,7 +30,8 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
         customer?.apply {
             binding.detailsCustomerNameTv.text = this.customerName
             binding.detailsCustomerEmailTv.text = this.customerEmail
-            binding.detailsCustomerAvailableBalance.text = ResourceUtil.getFormattedCurrency(this.customerBankAmount)
+            binding.detailsCustomerAvailableBalance.text =
+                ResourceUtil.getFormattedCurrency(this.customerBankAmount)
             var gender = ""
             gender = if (customer?.customerGenderIsMale == true)
                 "Male"
@@ -66,7 +67,11 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
                     .setAction(R.string.check) {
                         findNavController().navigate(R.id.action_customerDetailsFragment_to_transformationsFragment)
                     }.setAnchorView(binding.transferMoneyBtn).show()
+
             }
+            val updatedBalance = bundle.getInt("updated_balance")
+            binding.detailsCustomerAvailableBalance.text =
+                ResourceUtil.getFormattedCurrency(updatedBalance)
 
         }
     }

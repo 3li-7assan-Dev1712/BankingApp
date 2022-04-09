@@ -29,12 +29,12 @@ class TranferMoneyViewModel @Inject constructor(
         }
         val newTrans = Transformation(customer.customerName, balance = amount, isReceived = false)
         createNewTransformation(newTrans)
-        notifyFragmentOfSuccessfullOperation()
+        notifyFragmentOfSuccessfullOperation(updatedCustomer.customerBankAmount)
     }
 
-    private fun notifyFragmentOfSuccessfullOperation() =
+    private fun notifyFragmentOfSuccessfullOperation(updatedBankBalance: Int) =
         viewModelScope.launch {
-            eventsChannel.send(TransferMoneyEvents.OperationFinishedSuccessfully)
+            eventsChannel.send(TransferMoneyEvents.OperationFinishedSuccessfully(updatedBankBalance))
         }
 
     fun createNewTransformation(transformation: Transformation) {
@@ -45,6 +45,6 @@ class TranferMoneyViewModel @Inject constructor(
 
 
     sealed class TransferMoneyEvents {
-        object OperationFinishedSuccessfully : TransferMoneyEvents()
+        data class OperationFinishedSuccessfully(val updatedBalance: Int) : TransferMoneyEvents()
     }
 }

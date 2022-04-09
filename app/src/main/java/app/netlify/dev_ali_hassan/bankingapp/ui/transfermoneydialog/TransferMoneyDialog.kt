@@ -14,7 +14,6 @@ import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.TransferMoneyDialogBinding
 import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
@@ -62,15 +61,18 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
             viewModel.eventsFlow.collect { events ->
                 when (events) {
                     is TranferMoneyViewModel.TransferMoneyEvents.OperationFinishedSuccessfully -> {
-                        showSuccessfulMessageAndPopupBack()
+                        showSuccessfulMessageAndPopupBack(events.updatedBalance)
                     }
                 }
             }
         }
     }
 
-    private fun showSuccessfulMessageAndPopupBack() {
-        setFragmentResult("operations_status", bundleOf("operationSuccessful" to true))
+    private fun showSuccessfulMessageAndPopupBack(updatedBalance: Int) {
+        setFragmentResult(
+            "operations_status",
+            bundleOf("operationSuccessful" to true, "updated_balance" to updatedBalance)
+        )
         findNavController().popBackStack()
     }
 
