@@ -15,7 +15,7 @@ data class Customer(
     val customerGenderIsMale: Boolean,
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 ): Parcelable {
-    init {
+    /*init {
         customerAvatarCode = when (customerGenderIsMale) {
             true -> {
                 (1..3).random()
@@ -24,7 +24,7 @@ data class Customer(
                 (4..6).random()
             }
         }
-    }
+    }*/
 }
 
 

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.CustomerDetailsFragmentBinding
+import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
@@ -31,12 +32,15 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
             binding.detailsCustomerEmailTv.text = this.customerEmail
             binding.detailsCustomerAvailableBalance.text = this.customerBankAmount.toString()
             var gender = ""
-            if (customer?.customerGenderIsMale == true)
-                gender = "male"
+            gender = if (customer?.customerGenderIsMale == true)
+                "Male"
             else
-                gender = "female"
+                "Female"
             binding.detailsCustomerGender.text = gender
             binding.detailscustomerBankId.text = this.customerBankId
+            binding.customerImgView.setImageResource(
+                ResourceUtil.getResourceIdOfAvatar(customer!!.customerAvatarCode, requireContext())
+            )
 
         }
 

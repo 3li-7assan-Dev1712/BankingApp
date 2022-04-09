@@ -17,4 +17,7 @@
     <string name="transformations">Transformations</string>
     <string name="not_enough_balance">sorry, your blance is not enough</string>
     <string name="check">CHECK</string>
+    <string name="customers">Customers</string>
+    <string name="customer_details">Customer Details</string>
+
 </resources>
