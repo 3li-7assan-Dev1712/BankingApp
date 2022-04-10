@@ -27,6 +27,7 @@ class TransformationsFragment: Fragment(R.layout.tranformations_fragment) {
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.tranformationsFlow.collect {transformations ->
+                binding.progressBar.visibility = View.INVISIBLE
                 adapter.submitList(transformations)
             }
         }

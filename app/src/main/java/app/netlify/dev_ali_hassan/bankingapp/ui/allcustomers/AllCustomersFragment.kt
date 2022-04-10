@@ -35,6 +35,7 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
         // read data
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.customersFlow.collect {customers ->
+                binding.progressBar.visibility = View.INVISIBLE
                 adapter.submitList(customers)
             }
         }
