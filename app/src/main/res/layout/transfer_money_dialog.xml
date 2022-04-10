@@ -11,7 +11,6 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:layout_margin="16dp"
         android:text="@string/transfer_money"
         android:textSize="24sp"
@@ -25,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="32dp"
         android:text="@string/selected_money_amount_label"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,27 +44,24 @@
         android:autofillHints="" />
 
 
-    <TextView
+    <Button
         android:id="@+id/transferMoneyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:text="@string/transferMoneyBtnText"
-        android:textColor="@color/purple_700"
-        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/moneyAmountEditText" />
 
-    <TextView
+    <Button
         android:id="@+id/cancelTransferMoneyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginEnd="16dp"
         android:text="@string/cancel"
-        android:textColor="@color/purple_700"
-        android:textSize="18sp"
+        style="?attr/materialButtonOutlinedStyle"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/transferMoneyTextView"
         app:layout_constraintTop_toBottomOf="@id/moneyAmountEditText" />
