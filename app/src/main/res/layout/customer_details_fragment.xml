@@ -1,136 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     tools:context=".ui.customerdetails.CustomerDetailsFragment">
 
-    <TextView
-        android:id="@+id/detailsCustomerNameTv"
-        style="@style/detailsTextViewsStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/customerImgView"
-        tools:text="Abdluah AbdAlgalil" />
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/customerImgView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize30Percent"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/avatar_3" />
+        <TextView
+            android:id="@+id/detailsCustomerNameTv"
+            style="@style/detailsTextViewsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customerImgView"
+            tools:text="Abdluah AbdAlgalil" />
 
-    <TextView
-        android:id="@+id/detailscustomerEmailTvLabel"
-        style="@style/detailsTextViewsStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:ellipsize="end"
-        android:maxLength="50"
-        android:maxLines="1"
-        android:text="@string/customer_e_mail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCustomerNameTv" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/customerImgView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize30Percent"
+            tools:src="@drawable/avatar_3" />
 
-    <TextView
-        android:id="@+id/detailsCustomerGenderLabel"
-        style="@style/detailsTextViewsStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/customer_gender"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailscustomerEmailTvLabel" />
+        <TextView
+            android:id="@+id/detailscustomerEmailTvLabel"
+            style="@style/detailsTextViewsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:ellipsize="end"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:text="@string/customer_e_mail"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailsCustomerNameTv" />
 
-    <TextView
-        android:id="@+id/detailsCustomerAvailableBalanceLabel"
-        style="@style/detailsTextViewsStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/available_balance"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCustomerGenderLabel" />
+        <TextView
+            android:id="@+id/detailsCustomerGenderLabel"
+            style="@style/detailsTextViewsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/customer_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailscustomerEmailTvLabel" />
 
-    <TextView
-        android:id="@+id/detailscustomerBankIdLabel"
-        style="@style/detailsTextViewsStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/bank_id"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/detailsCustomerAvailableBalanceLabel" />
+        <TextView
+            android:id="@+id/detailsCustomerAvailableBalanceLabel"
+            style="@style/detailsTextViewsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/available_balance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailsCustomerGenderLabel" />
 
-    <TextView
-        android:id="@+id/detailsCustomerEmailTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:ellipsize="end"
-        android:maxLength="50"
-        android:maxLines="1"
-        app:layout_constraintBottom_toBottomOf="@+id/detailscustomerEmailTvLabel"
-        app:layout_constraintStart_toEndOf="@id/detailscustomerEmailTvLabel"
-        app:layout_constraintTop_toTopOf="@+id/detailscustomerEmailTvLabel"
-        tools:text="alihassan17122002@gmail.com" />
+        <TextView
+            android:id="@+id/detailscustomerBankIdLabel"
+            style="@style/detailsTextViewsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/bank_id"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/detailsCustomerAvailableBalanceLabel" />
 
-    <TextView
-        android:id="@+id/detailsCustomerGender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/detailsCustomerGenderLabel"
-        app:layout_constraintStart_toEndOf="@id/detailsCustomerGenderLabel"
-        app:layout_constraintTop_toTopOf="@+id/detailsCustomerGenderLabel"
-        tools:text="Male" />
+        <TextView
+            android:id="@+id/detailsCustomerEmailTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLength="50"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/detailscustomerEmailTvLabel"
+            app:layout_constraintStart_toEndOf="@id/detailscustomerEmailTvLabel"
+            app:layout_constraintTop_toTopOf="@+id/detailscustomerEmailTvLabel"
+            tools:text="alihassan17122002@gmail.com" />
 
-    <TextView
-        android:id="@+id/detailsCustomerAvailableBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/detailsCustomerAvailableBalanceLabel"
-        app:layout_constraintStart_toEndOf="@id/detailsCustomerAvailableBalanceLabel"
-        app:layout_constraintTop_toTopOf="@+id/detailsCustomerAvailableBalanceLabel"
-        tools:text="$500" />
+        <TextView
+            android:id="@+id/detailsCustomerGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detailsCustomerGenderLabel"
+            app:layout_constraintStart_toEndOf="@id/detailsCustomerGenderLabel"
+            app:layout_constraintTop_toTopOf="@+id/detailsCustomerGenderLabel"
+            tools:text="Male" />
 
-    <TextView
-        android:id="@+id/detailscustomerBankId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/detailscustomerBankIdLabel"
-        app:layout_constraintStart_toEndOf="@id/detailscustomerBankIdLabel"
-        app:layout_constraintTop_toTopOf="@+id/detailscustomerBankIdLabel"
-        tools:text="3829DF932GLIN2" />
+        <TextView
+            android:id="@+id/detailsCustomerAvailableBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detailsCustomerAvailableBalanceLabel"
+            app:layout_constraintStart_toEndOf="@id/detailsCustomerAvailableBalanceLabel"
+            app:layout_constraintTop_toTopOf="@+id/detailsCustomerAvailableBalanceLabel"
+            tools:text="$500" />
 
+        <TextView
+            android:id="@+id/detailscustomerBankId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/detailscustomerBankIdLabel"
+            app:layout_constraintStart_toEndOf="@id/detailscustomerBankIdLabel"
+            app:layout_constraintTop_toTopOf="@+id/detailscustomerBankIdLabel"
+            tools:text="3829DF932GLIN2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <Button
         android:id="@+id/transferMoneyBtn"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:layout_gravity="bottom"
         android:layout_marginBottom="16dp"
         android:text="@string/transferMoneyBtnText"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -32,8 +32,7 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
             binding.detailsCustomerEmailTv.text = this.customerEmail
             binding.detailsCustomerAvailableBalance.text =
                 ResourceUtil.getFormattedCurrency(this.customerBankAmount)
-            var gender = ""
-            gender = if (customer?.customerGenderIsMale == true)
+            val gender: String = if (customer?.customerGenderIsMale == true)
                 "Male"
             else
                 "Female"
@@ -56,22 +55,31 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragmentResultListener("operations_status") { requestKey, bundle ->
+        setFragmentResultListener("operations_status") { _, bundle ->
             val result = bundle.getBoolean("operationSuccessful")
             if (result) {
+                val updatedBalance = bundle.getInt("updated_balance")
+                binding.detailsCustomerAvailableBalance.text =
+                    ResourceUtil.getFormattedCurrency(updatedBalance)
+
                 Snackbar.make(
-                    binding.root,
+                    requireView(),
                     getString(R.string.transfer_money_message),
                     Snackbar.LENGTH_LONG
                 )
                     .setAction(R.string.check) {
                         findNavController().navigate(R.id.action_customerDetailsFragment_to_transformationsFragment)
-                    }.setAnchorView(binding.transferMoneyBtn).show()
+                    }.show()
 
+            } else {
+                Snackbar.make(
+                    requireView(),
+                    getString(R.string.operation_canceled),
+                    Snackbar.LENGTH_LONG
+                )
+                    .setAction(R.string.ok) {}.show()
             }
-            val updatedBalance = bundle.getInt("updated_balance")
-            binding.detailsCustomerAvailableBalance.text =
-                ResourceUtil.getFormattedCurrency(updatedBalance)
+
 
         }
     }

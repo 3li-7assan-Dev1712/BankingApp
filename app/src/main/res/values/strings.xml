@@ -19,5 +19,7 @@
     <string name="check">CHECK</string>
     <string name="customers">Customers</string>
     <string name="customer_details">Customer Details</string>
+    <string name="operation_canceled">Operation has been canceld</string>
+    <string name="ok">OK</string>
 
 </resources>
