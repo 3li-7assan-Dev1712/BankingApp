@@ -2,7 +2,12 @@ package app.netlify.dev_ali_hassan.bankingapp.ui.allcustomers
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -27,6 +32,7 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setHasOptionsMenu(true)
         binding = AllCustomersFragmentBinding.bind(view)
         val adapter = AllCustomerIsAdapter(this, requireContext())
         binding.allCustoemrsRv.adapter = adapter
@@ -45,6 +51,7 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
 
 
     private fun listenToEvents() {
+
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.eventsFlow.collect {events ->
                 when (events) {
@@ -68,5 +75,21 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
 
     override fun onCustomerSelected(customer: Customer) {
         viewModel.userSelectCustomer(customer)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.dark_light_mode_icon -> {
+                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+                item.setIcon(R.drawable.ic_light)
+                true
+            } else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
     }
 }

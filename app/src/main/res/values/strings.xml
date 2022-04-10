@@ -21,5 +21,6 @@
     <string name="customer_details">Customer Details</string>
     <string name="operation_canceled">Operation has been canceld</string>
     <string name="ok">OK</string>
+    <string name="dark_mode">Dark Mode</string>
 
 </resources>
