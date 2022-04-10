@@ -12,7 +12,11 @@
         tools:layout="@layout/all_customers_fragment">
         <action
             android:id="@+id/action_allCustomersFragment_to_customerDetailsFragment"
-            app:destination="@id/customerDetailsFragment" />
+            app:destination="@id/customerDetailsFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
     </fragment>
     <fragment
         android:id="@+id/customerDetailsFragment"
@@ -27,7 +31,11 @@
             app:argType="app.netlify.dev_ali_hassan.bankingapp.data.models.Customer" />
         <action
             android:id="@+id/action_customerDetailsFragment_to_transformationsFragment"
-            app:destination="@id/transformationsFragment" />
+            app:destination="@id/transformationsFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <dialog
         android:id="@+id/transferMoneyDialog"
@@ -45,10 +53,18 @@
         tools:layout="@layout/home_screen_fragment">
         <action
             android:id="@+id/action_homeScreenFragment_to_allCustomersFragment"
-            app:destination="@id/allCustomersFragment" />
+            app:destination="@id/allCustomersFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_homeScreenFragment_to_transformationsFragment"
-            app:destination="@id/transformationsFragment" />
+            app:destination="@id/transformationsFragment"
+            app:enterAnim="@anim/fui_slide_in_right"
+            app:exitAnim="@anim/fui_slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/transformationsFragment"
