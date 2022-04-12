@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,8 +17,10 @@ import androidx.navigation.fragment.findNavController
 import app.netlify.dev_ali_hassan.bankingapp.R
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import app.netlify.dev_ali_hassan.bankingapp.databinding.AllCustomersFragmentBinding
+import app.netlify.dev_ali_hassan.bankingapp.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
+import kotlin.properties.Delegates
 
 
 /**
@@ -29,6 +32,9 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
 
     private lateinit var binding: AllCustomersFragmentBinding
     private val viewModel: AllCustomersViewModel by viewModels()
+
+    private val mainViewModel: MainViewModel by viewModels()
+    private var isDarkTheme: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -47,8 +53,22 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
         }
         // listen to events
         listenToEvents()
+        triggerDarkThemeEvents()
     }
 
+    fun triggerDarkThemeEvents() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+
+            mainViewModel.darkThemePreferences.collect {
+                isDarkTheme = it
+                if (isDarkTheme) {
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+                }
+            }
+        }
+    }
 
     private fun listenToEvents() {
 
@@ -79,17 +99,26 @@ class AllCustomersFragment : Fragment(R.layout.all_customers_fragment), AllCusto
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.main, menu)
+        val item = menu.findItem(R.id.dark_light_mode_icon)
+        setItemIcon(item)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.dark_light_mode_icon -> {
-                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
-                item.setIcon(R.drawable.ic_light)
+                mainViewModel.updateDarkTheme(!isDarkTheme)
+                setItemIcon(item)
                 true
             } else -> {
                 super.onOptionsItemSelected(item)
             }
         }
+    }
+
+    private fun setItemIcon(item: MenuItem) {
+        if (isDarkTheme)
+            item.setIcon(R.drawable.ic_light)
+        else
+            item.setIcon(R.drawable.ic_dark)
     }
 }
