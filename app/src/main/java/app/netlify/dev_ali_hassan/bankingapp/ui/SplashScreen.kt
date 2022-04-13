@@ -13,22 +13,11 @@ import kotlinx.coroutines.flow.collect
 class SplashScreen : AppCompatActivity() {
 
 
-    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        lifecycleScope.launchWhenStarted {
-            viewModel.darkThemePreferences.collect {
-                if (it)
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                else
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
-
-            }
-            startActivity(Intent(applicationContext, MainActivity::class.java))
-            finish()
-        }
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
 
     }
 }

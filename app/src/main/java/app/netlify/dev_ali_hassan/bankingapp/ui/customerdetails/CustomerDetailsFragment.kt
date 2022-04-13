@@ -33,9 +33,9 @@ class CustomerDetailsFragment : Fragment(R.layout.customer_details_fragment) {
             binding.detailsCustomerAvailableBalance.text =
                 ResourceUtil.getFormattedCurrency(this.customerBankAmount)
             val gender: String = if (customer?.customerGenderIsMale == true)
-                "Male"
+                getString(R.string.male)
             else
-                "Female"
+                getString(R.string.female)
             binding.detailsCustomerGender.text = gender
             binding.detailscustomerBankId.text = this.customerBankId
             binding.customerImgView.setImageResource(

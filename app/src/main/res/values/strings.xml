@@ -22,5 +22,7 @@
     <string name="operation_canceled">Operation has been canceld</string>
     <string name="ok">OK</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 
 </resources>

@@ -52,8 +52,6 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
                 bundleOf("operationSuccessful" to false)
             )
             findNavController().popBackStack()
-            Toast.makeText(requireContext(), "cancel operation successfully", Toast.LENGTH_SHORT)
-                .show()
         }
 
         // listen to events

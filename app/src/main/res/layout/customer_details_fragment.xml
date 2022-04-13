@@ -126,14 +126,15 @@
             tools:text="3829DF932GLIN2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/transferMoneyBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_gravity="bottom"
+        android:layout_gravity="bottom|end"
         android:layout_marginBottom="16dp"
         android:text="@string/transferMoneyBtnText"
-        />
+        android:src="@drawable/ic_transform"
+        android:contentDescription="@string/app_name" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
