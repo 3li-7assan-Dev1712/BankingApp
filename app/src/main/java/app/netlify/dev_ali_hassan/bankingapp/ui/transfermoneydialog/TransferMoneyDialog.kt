@@ -1,9 +1,10 @@
 package app.netlify.dev_ali_hassan.bankingapp.ui.transfermoneydialog
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
+import android.view.WindowManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
@@ -26,6 +27,7 @@ class TransferMoneyDialog : DialogFragment(R.layout.transfer_money_dialog) {
     private lateinit var binding: TransferMoneyDialogBinding
 
     private var customer: Customer? = null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding = TransferMoneyDialogBinding.bind(view)

@@ -13,6 +13,10 @@ import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * This is the datastore which we use it to store light weight data like boolean of dark theme is
+ * enabled or not.
+ */
 @Singleton
 class PreferencesManager @Inject constructor(@ApplicationContext context: Context) {
 

@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
- * This view model will be responsible for the business logic of the all customers fragment. I will interact
+ * This view model will be responsible for the business logic of the all customers fragment. It will interact
  * with the database, and take all the back end side.
  */
 @HiltViewModel
@@ -20,10 +20,13 @@ class AllCustomersViewModel @Inject constructor(
     customerDao: CustomerDao
 ) : ViewModel() {
 
-
+    // to give orders to the fragment we need the coroutines channel which give us the ability
+    // to send events that we can receive it as a flow and collect it in the fragment : )
     private val eventsChannel = Channel<AllCustomerEvents>()
+    // receive the channel as a flow to be able to collect it in the fragment. *_-
     val eventsFlow = eventsChannel.receiveAsFlow()
 
+    // all customers fromt the Room database.
     val customersFlow = customerDao.getAllCustomers()
 
     fun userSelectCustomer(customer: Customer) =
@@ -36,16 +39,4 @@ class AllCustomersViewModel @Inject constructor(
         data class NavigateToDetailsFragment(val customer: Customer): AllCustomerEvents()
     }
 
-
-    fun provideTempData() = listOf(
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true),
-        Customer("Ali Hassan", "38KDF938IOA", 600, "ali@gmail.com", 3, true)
-
-    )
 }

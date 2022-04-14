@@ -14,7 +14,12 @@ import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
 import java.text.NumberFormat
 import java.util.*
 
-
+/**
+ * An adapter that will be used with the RecyclerView to adapt the data in items in a list.
+ *
+ * @param listener to listen to click on items event.
+ * @param context to be used in getting android resources like drawables
+ */
 class AllCustomerIsAdapter(
     val listener: OnCustomerSelected,
     val context: Context

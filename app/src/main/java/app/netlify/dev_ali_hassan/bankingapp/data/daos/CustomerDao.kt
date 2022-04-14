@@ -6,6 +6,9 @@ import androidx.room.Update
 import app.netlify.dev_ali_hassan.bankingapp.data.models.Customer
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * The DAO Data Access Object is an interface that will interact with the database.
+ */
 @Dao
 interface CustomerDao {
 

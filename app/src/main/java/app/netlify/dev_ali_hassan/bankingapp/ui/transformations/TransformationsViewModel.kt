@@ -14,17 +14,4 @@ class TransformationsViewModel @Inject constructor(
 
     val tranformationsFlow = transformationsDao.getAllTransformations()
 
-    fun provideTempData() = listOf(
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true),
-        Transformation("Esam",  System.currentTimeMillis(), 342, true)
-
-    )
 }

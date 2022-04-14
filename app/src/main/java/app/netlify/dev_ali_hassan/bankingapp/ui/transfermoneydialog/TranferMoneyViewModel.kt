@@ -12,13 +12,20 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * The view model will do all the business logic to its fragment like interacting with internet
+ * or the database and gives orders to the fragment.
+ */
 @HiltViewModel
 class TranferMoneyViewModel @Inject constructor(
     val customerDao: CustomerDao,
     val transformationsDao: TransformationsDao
 ) : ViewModel() {
 
+    // to give orders to the fragment we need the coroutines channel which give us the ability
+    // to send events that we can receive it as a flow and collect it in the fragment : )
     val eventsChannel = Channel<TransferMoneyEvents>()
+    // receive the channel as a flow to be able to collect it in the fragment. *_-
     val eventsFlow = eventsChannel.receiveAsFlow()
 
     fun userTransferMoneyToOtherCustomer(amount: Int, customer: Customer) {

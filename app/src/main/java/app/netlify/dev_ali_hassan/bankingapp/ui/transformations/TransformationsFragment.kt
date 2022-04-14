@@ -10,11 +10,18 @@ import app.netlify.dev_ali_hassan.bankingapp.databinding.TranformationsFragmentB
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 
+/**
+ * The is the fragment that will display transformations in the screen. The data will come
+ * from the Room database using a dedicated view model to do that on a background thread
+ * with coroutines.
+ */
 @AndroidEntryPoint
 class TransformationsFragment: Fragment(R.layout.tranformations_fragment) {
 
+    // the view model of the current fragment to handle all business logic.
     private val viewModel: TransformationsViewModel by viewModels()
 
+    // viewBinding
     private lateinit var binding: TranformationsFragmentBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

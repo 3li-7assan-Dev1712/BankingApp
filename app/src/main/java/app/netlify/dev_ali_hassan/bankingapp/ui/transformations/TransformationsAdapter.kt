@@ -13,7 +13,11 @@ import app.netlify.dev_ali_hassan.bankingapp.util.ResourceUtil
 import java.text.SimpleDateFormat
 import java.util.*
 
-
+/**
+ * An adapter that will be used with the RecyclerView to adapt the data in items in a list.
+ *
+ * @param context to be used in getting android resources like drawables
+ */
 class TransformationsAdapter(
     val context: Context
 ) :

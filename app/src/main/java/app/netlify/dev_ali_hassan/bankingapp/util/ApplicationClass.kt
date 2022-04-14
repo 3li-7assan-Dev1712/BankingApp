@@ -14,10 +14,21 @@ import kotlin.coroutines.coroutineContext
 import kotlin.coroutines.suspendCoroutine
 
 
+/**
+ * The application class is the entry point of the app. That is why it is used in the manifest
+ * we use it to make the dependency injection as well as to control the dark theme when the
+ * user changes its -dark theme- options.
+ */
 @HiltAndroidApp
 class ApplicationClass:
     Application() {
 
+    /*
+     * field injection instead of constructor injection because the android framework
+     * will not allow of creating an application class with args in its constructor
+     * meaning that the application class's constructor should be empty. The preferences manager
+     * wiil be used to manage the dark theme options.
+     */
     @Inject lateinit var preferencesManager: PreferencesManager
 
     override fun onCreate() {
